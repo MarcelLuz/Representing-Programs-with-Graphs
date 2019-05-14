@@ -18,11 +18,11 @@ If you use the provided implementation in your research, please cite the [_Learn
 Ensure you have the following packages installed 
 (these can all be installed with pip3):
 
-- numpy
-- pyYAML
-- tensorflow-gpu (or tensorflow)
-- dpu_utils
-- protobuf
+- numpy == 1.16.3
+- pyYAML == 5.1
+- tensorflow-gpu (or tensorflow) == 1.13.1
+- dpu_utils == 0.1.28
+- protobuf == 3.7.1
 
 
 ### Dataset Format

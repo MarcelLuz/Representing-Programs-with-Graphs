@@ -8,7 +8,7 @@ from shutil import copyfile
 def split_samples():
 
     with open("config.yml", 'r') as ymlfile:
-        cfg = yaml.load(ymlfile)
+        cfg = yaml.load(ymlfile, Loader=yaml.SafeLoader)
 
     corpus_path = cfg['corpus_path']
     train_path  = cfg['train_path']
@@ -18,7 +18,6 @@ def split_samples():
     f_names = []
     ignore = ("Test.java.proto", "TestCase.java.proto", "Tests.java.proto") # Ignore test cases
     max_size_mb = 100          # maximum file size in MB
-    min_size_mb = 0.05
 
 
     # Extract all filenames from corpus folders
@@ -30,7 +29,7 @@ def split_samples():
 
                 f_size_mb = os.path.getsize(fname) / 1000000
 
-                if f_size_mb < max_size_mb and f_size_mb > min_size_mb:
+                if f_size_mb < max_size_mb:
                     fname = os.path.join(dirpath, filename)
                     f_names.append(fname)
 
